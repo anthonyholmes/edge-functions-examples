@@ -14,7 +14,10 @@ export default async (request: Request, context: Context) => {
   // "Cache-Control": "public, max-age=0, must-revalidate",
   // "Netlify-CDN-Cache-Control": "public, max-age=31536000, must-revalidate",
 
+  console.log("CDN CACHE MISS");
+
   response.headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+  response.headers.set("CDN-Cache-Control", "public, max-age=31536000, must-revalidate");
   response.headers.set("Netlify-CDN-Cache-Control", "public, max-age=31536000, must-revalidate");
   return response;
 };
