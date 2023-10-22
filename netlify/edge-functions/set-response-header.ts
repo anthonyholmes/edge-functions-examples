@@ -11,5 +11,10 @@ export default async (request: Request, context: Context) => {
 
   const response = await context.next();
   response.headers.set("X-Your-Custom-Header", "Your custom header value");
+  // "Cache-Control": "public, max-age=0, must-revalidate",
+  // "Netlify-CDN-Cache-Control": "public, max-age=31536000, must-revalidate",
+
+  response.headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+  response.headers.set("Netlify-CDN-Cache-Control", "public, max-age=31536000, must-revalidate");
   return response;
 };
