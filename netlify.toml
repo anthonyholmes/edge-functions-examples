@@ -14,7 +14,6 @@
   path = "/*"
   
 [[edge_functions]]
-  cache = "manual"
   function = "set-response-header"
   path = "/*"
 
